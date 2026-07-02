@@ -9,27 +9,45 @@ const Header = () => {
   };
 
   return (
-    <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white'>
-      <h1 className='w-full text-3xl font-bold text-[#00df9a]'>REACT.</h1>
-      <ul className='hidden md:flex'>
-        <li className='p-4'>Home</li>
-        <li className='p-4'>Company</li>
-        <li className='p-4'>Resources</li>
-        <li className='p-4'>About</li>
-        <li className='p-4'>Contact</li>
-      </ul>
-      <div onClick={handleNav} className='block md:hidden'>
-          {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20} />}
+    <header className='sticky top-0 z-50 border-b border-white/10 bg-[#000300]/80 backdrop-blur-xl'>
+      <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white'>
+        <a href='#' className='shrink-0 text-xl sm:text-2xl font-semibold tracking-[0.28em] text-white'>
+          YAGIZKARAGOZ
+        </a>
+
+        <ul className='hidden md:flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-300 shadow-[0_20px_60px_rgba(0,0,0,0.3)]'>
+          <li className='rounded-full px-4 py-2 transition hover:bg-white/10 hover:text-white'>Home</li>
+          <li className='rounded-full px-4 py-2 transition hover:bg-white/10 hover:text-white'>Company</li>
+          <li className='rounded-full px-4 py-2 transition hover:bg-white/10 hover:text-white'>Resources</li>
+          <li className='rounded-full px-4 py-2 transition hover:bg-white/10 hover:text-white'>About</li>
+          <li className='rounded-full px-4 py-2 transition hover:bg-white/10 hover:text-white'>Contact</li>
+        </ul>
+
+        <button
+          onClick={handleNav}
+          className='md:hidden inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white backdrop-blur transition hover:bg-white/10'
+          aria-label='Toggle navigation'
+        >
+          {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+        </button>
+
+        <ul
+          className={
+            nav
+              ? 'fixed left-0 top-0 z-50 h-full w-[78%] max-w-sm border-r border-white/10 bg-[#000300]/95 p-6 text-white shadow-2xl backdrop-blur-xl ease-out duration-300'
+              : 'fixed left-[-100%] top-0 z-50 h-full w-[78%] max-w-sm border-r border-white/10 bg-[#000300]/95 p-6 text-white shadow-2xl backdrop-blur-xl ease-out duration-300'
+          }
+        >
+          <h1 className='mb-8 text-xl font-semibold tracking-[0.22em]'>YAGIZKARAGOZ</h1>
+
+          <li className='rounded-2xl border-b border-white/10 px-2 py-4 text-slate-200 transition hover:text-white'>Home</li>
+          <li className='rounded-2xl border-b border-white/10 px-2 py-4 text-slate-200 transition hover:text-white'>Company</li>
+          <li className='rounded-2xl border-b border-white/10 px-2 py-4 text-slate-200 transition hover:text-white'>Resources</li>
+          <li className='rounded-2xl border-b border-white/10 px-2 py-4 text-slate-200 transition hover:text-white'>About</li>
+          <li className='rounded-2xl px-2 py-4 text-slate-200 transition hover:text-white'>Contact</li>
+        </ul>
       </div>
-      <ul className={nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500' : 'ease-in-out duration-500 fixed left-[-100%]'}>
-        <h1 className='w-full text-3xl font-bold text-[#00df9a] m-4'>REACT.</h1>
-          <li className='p-4 border-b border-gray-600'>Home</li>
-          <li className='p-4 border-b border-gray-600'>Company</li>
-          <li className='p-4 border-b border-gray-600'>Resources</li>
-          <li className='p-4 border-b border-gray-600'>About</li>
-          <li className='p-4'>Contact</li>
-      </ul>
-    </div>
+    </header>
   );
 };
 
